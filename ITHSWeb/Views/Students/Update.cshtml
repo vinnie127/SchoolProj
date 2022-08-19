@@ -1,0 +1,79 @@
+﻿@model ITHSWeb.Models.ViewModel.StudentsVM
+@{
+    var title = "Create Student";
+}
+
+<form method="post" asp-action="Update">
+
+    <div class="row px-2 mx-2 backgroundWhite border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (Model.Student.StudentId != 0)
+        {
+            <input type="hidden" asp-for="Student.StudentId" />
+            title = "Edit Student";
+        }
+
+        <div class="col-12 p-3">
+            <h2 class="text-primary">@title</h2>
+        </div>
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Student.Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Student.Name" class="form-control" />
+                    <span asp-validation-for="Student.Name" class="text-danger"></span>
+                </div>
+            </div>
+              <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Student.LastName"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Student.LastName" class="form-control" />
+                    <span asp-validation-for="Student.LastName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Student.Epost"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Student.Epost" class="form-control" />
+                    <span asp-validation-for="Student.Epost" class="text-danger"></span>
+                </div>
+            </div>
+           <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Student.PhoneNumber"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Student.PhoneNumber" class="form-control" />
+                    <span asp-validation-for="Student.PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+             <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Student.StreetAdress"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Student.StreetAdress" class="form-control" />
+                    <span asp-validation-for="Student.StreetAdress" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4 offset-4">
+                    <button type="submit" class="btn btn-primary form-control"> 
+                        @(Model.Student.StudentId != 0 ? "Update" :"Create")
+                    </button>
+                </div>
+                <div class="col-4">
+                    <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+
+</form>
